@@ -34,6 +34,7 @@
 #include "host_alerts/SMTPServerContactsAlert.h"
 #include "host_alerts/NTPServerContactsAlert.h"
 #include "host_alerts/NTPTrafficAlert.h"
+#include "host_alerts/MiscTrafficAlert.h"
 #include "host_alerts/P2PTrafficAlert.h"
 #include "host_alerts/DNSTrafficAlert.h"
 #include "host_alerts/ScoreThresholdAlert.h"

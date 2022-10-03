@@ -29,6 +29,7 @@ class HostChecksStatus { /* Container to keep per-check status (e.g., traffic de
   time_t last_call_min, /* The last time minute checks were executed  */
     last_call_5min;     /* The last time 5minute checks were executed */
   u_int64_t ntp_bytes;  /* Holds the NTP bytes and is used to compute the delta of NTP bytes across consecutive check calls */
+  u_int64_t misc_bytes;
   u_int64_t p2p_bytes;  /* Holds the P2P bytes and is used to compute the delta of P2P bytes across consecutive check calls */
   u_int64_t dns_bytes;  /* Holds the DNS bytes and is used to compute the delta of DNS bytes across consecutive check calls */
   u_int64_t pkt_counter;
@@ -49,6 +50,7 @@ class HostChecksStatus { /* Container to keep per-check status (e.g., traffic de
 
   /* Checks status API */
   inline u_int64_t cb_status_delta_ntp_bytes(u_int64_t new_value) { return Utils::uintDiff(&ntp_bytes, new_value); };
+  inline u_int64_t cb_status_delta_misc_bytes(u_int64_t new_value) { return Utils::uintDiff(&misc_bytes, new_value); };
   inline u_int64_t cb_status_delta_p2p_bytes(u_int64_t new_value) { return Utils::uintDiff(&p2p_bytes, new_value); };
   inline u_int64_t cb_status_delta_dns_bytes(u_int64_t new_value) { return Utils::uintDiff(&dns_bytes, new_value); };
   inline u_int64_t cb_status_delta_pkt_counter(u_int64_t new_value) { return Utils::uintDiff(&pkt_counter, new_value); };
