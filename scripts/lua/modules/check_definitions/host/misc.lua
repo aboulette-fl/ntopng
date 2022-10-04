@@ -21,7 +21,7 @@ local misc = {
   gui = {
     i18n_title = "alerts_thresholds_config.misc_traffic",
     i18n_description = "alerts_thresholds_config.alert_misc_description",
-    input_builder = "items_list",
+    input_builder = "misc_traffic",
     input_title = "alerts_thresholds_config.misc_traffic",
     input_description = "alerts_thresholds_config.alert_misc_description",
   },
