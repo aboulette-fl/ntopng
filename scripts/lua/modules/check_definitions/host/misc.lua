@@ -15,7 +15,7 @@ local misc = {
   alert_id = host_alert_keys.host_alert_misc_traffic,
 
   default_value = {
-     items = { 1048576, 0, 92 }, -- 1MB gt, 0 lt, SSH
+     items = { 1048576, 92 }, -- 1MB gt, 0 lt, SSH
   },
 
   gui = {

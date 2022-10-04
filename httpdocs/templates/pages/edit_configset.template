@@ -926,13 +926,29 @@ const render_template = () => {
    const $text_area = $(`
       <td>
          <div class='form-row'>
-            <textarea
+            <input
+               type='number'
+               class='form-control text-end'
+               required
+               style='max-width: 7rem;'
+               name='misc-traffic-threshold'
+               id='misc-traffic-threshold'
+               ${!enabled ? 'readonly' : ''}
+               value='${misc_traffic[0]}'>
+         </div>
+         <div class='form-row'>
+            <select name="misc-traffic-proto" id="misc-traffic-proto">
+               <option value="92" ${misc_traffic[1] == 92 ? 'selected="selected"' : ''}>SSH</option>
+            </select>
+            <!-- <textarea
                ${!enabled ? "readonly" : ""}
                name='misc-traffic'
                id='misctraffic-textarea'
                class="w-100 form-control"
-               rows='3'>${misc_traffic.length > 0 ? misc_traffic.join(',') : ''}</textarea>
-               <small>${gui.input_description || i18n_ext.blacklisted_country}</small>
+               rows='3'>${misc_traffic.length > 0 ? misc_traffic.join(',') : ''}</textarea> -->
+         </div>
+         <div class='form-row'>
+            <small>${gui.input_description || i18n_ext.blacklisted_country}</small>
             <div class="invalid-feedback"></div>
             <label></label>
          </div>
@@ -950,9 +966,12 @@ const render_template = () => {
 const apply_event = (event) => {
 
    const hook_enabled = $('#itemslist-checkbox').prop('checked');
-   const textarea_value = $('#misctraffic-textarea').val().trim();
+   //const textarea_value = $('#misctraffic-textarea').val().trim();
+   const threshold_value = $('#misc-traffic-threshold').val();
+   const proto_value = $('#misc-traffic-proto').val();
 
-   const misc_traffic = textarea_value ? textarea_value.split(',').map(x => x.trim()) : [];
+   //const misc_traffic = textarea_value ? textarea_value.split(',').map(x => x.trim()) : [];
+   const misc_traffic = [threshold_value, proto_value];
    const hook = (hooks.all === undefined) ? ((hooks["5mins"] === undefined) ? "min" : "5mins") : "all";
    const template_data = {
       [hook]: {

@@ -56,12 +56,8 @@ bool MiscTraffic::loadConfiguration(json_object *config) {
     json_object *item = json_object_array_get_idx(items, 0);
     misc_bytes_threshold = json_object_get_int(item);
 
-    /* LT */
-    item = json_object_array_get_idx(items, 1);
-    /* misc_bytes_threshold = json_object_get_int(item); */
-
     /* Protocol */
-    item = json_object_array_get_idx(items, 2);
+    item = json_object_array_get_idx(items, 1);
     proto = json_object_get_int(item);
   }
 
